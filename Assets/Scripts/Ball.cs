@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         print("Start");
-        //rb = GetComponent<RigidBody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
