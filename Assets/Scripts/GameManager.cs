@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : Singleton<GameManager>
@@ -9,6 +10,16 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject titleUI;
     [SerializeField] TMP_Text livesUI;
     [SerializeField] TMP_Text timerUI;
+    [SerializeField] Slider healthUI;
+
+    [SerializeField] FloatVariable health;
+
+    [SerializeField] GameObject respawn;
+
+    [Header("Events")]
+    //[SerializeField] IntEvent scoreEvent;
+    [SerializeField] VoidEvent gameStartEvent;
+    [SerializeField] GameObjectEvent respawnEvent;
 
     public enum State
     {
@@ -42,9 +53,19 @@ public class GameManager : Singleton<GameManager>
         } 
     }
 
+    private void OnEnable()
+    {
+        //scoreEvent.Subscribe(OnAddPoints);
+    }
+
+    private void OnDisable()
+    {
+        //scoreEvent.Unsubscribe(OnAddPoints);
+    }
+
     void Start()
     {
-
+       
     }
 
     void Update()
@@ -60,9 +81,11 @@ public class GameManager : Singleton<GameManager>
 				titleUI.SetActive(false);
                 timer = 60;
                 Lives = 3;
+                health.value = 100;
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
-
+                gameStartEvent.RaiseEvent();
+                respawnEvent.RaiseEvent(respawn);
                 state = State.PLAY_GAME;
 				break;
 			case State.PLAY_GAME:
@@ -75,12 +98,22 @@ public class GameManager : Singleton<GameManager>
 			case State.GAME_OVER:
 				break;
 		}
+
+        healthUI.value = health.value / 100.0f;
 	}
 
-
+    public void OnPlayerDead()
+    {
+        state = State.TITLE;
+    }
 
     public void OnStartGame()
     {
         state = State.START_GAME;
+    }
+
+    public void OnAddPoints(int points)
+    {
+        print(points);
     }
 }
