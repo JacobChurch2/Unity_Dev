@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Pickup : MonoBehaviour
 {
     [SerializeField] GameObject pickupPrefab = null;
@@ -16,9 +17,15 @@ public class Pickup : MonoBehaviour
 		if(other.gameObject.TryGetComponent(out Player player))
 		{
 			player.AddPoints(10);
+
+			AudioSource audio = GetComponent<AudioSource>();
+			
+			audio.Play();
 		}
 
         Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+		//gameObject.SetActive(false);
+		GetComponent<MeshRenderer>().enabled = false;
+		Destroy(gameObject, 1);
 	}
 }

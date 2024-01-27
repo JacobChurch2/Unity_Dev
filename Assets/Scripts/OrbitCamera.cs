@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class OrbitCamera : MonoBehaviour
     {
         yaw += Input.GetAxis("Mouse X") * sensitivity;
         pitch += Input.GetAxis("Mouse Y") * sensitivity;
+        pitch = Math.Clamp(pitch, 0, 90);
 
         Quaternion qyaw = Quaternion.AngleAxis(yaw, Vector3.up);
         Quaternion qpitch = Quaternion.AngleAxis(pitch, Vector3.right);

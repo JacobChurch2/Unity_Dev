@@ -7,6 +7,7 @@ public class Damage : MonoBehaviour
 {
     [SerializeField] float damage = 1;
     [SerializeField] bool oneTime = true;
+    [SerializeField] bool solid;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +24,14 @@ public class Damage : MonoBehaviour
             damagable.TakeDamage(damage * Time.deltaTime);
         }
     }
+
+	private void OnCollisionEnter(Collision other)
+	{
+		if (solid && other.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable))
+		{
+			damagable.TakeDamage(damage);
+		}
+	}
 }
 
 public interface IDamagable

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+
 public class PhysicCharacterController : MonoBehaviour
 {
     [Header("Movement")]
@@ -52,7 +53,8 @@ public class PhysicCharacterController : MonoBehaviour
 
     public void Reset()
     {
-        rb.velocity = Vector3.zero;
+		rb = GetComponent<Rigidbody>();
+		rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
 }
