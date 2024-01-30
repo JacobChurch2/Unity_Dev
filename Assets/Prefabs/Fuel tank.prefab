@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3025514013936058674}
   - component: {fileID: 8836150069420178592}
   - component: {fileID: 6530770993168242282}
+  - component: {fileID: -7657128075374317808}
   m_Layer: 0
   m_Name: Fuel tank
   m_TagString: Untagged
@@ -268,3 +269,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7657128075374317808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767052813391405397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3031eb7a92583a040880da43588856a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
