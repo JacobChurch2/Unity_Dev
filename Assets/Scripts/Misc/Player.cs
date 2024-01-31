@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, IDamagable
 		Score += points;
 	}
 
-	public void TakeDamage(float damage)
+	public void ApplyDamage(float damage)
 	{
 		health.value -= damage;
 		GetComponent<AudioSource>().Play();

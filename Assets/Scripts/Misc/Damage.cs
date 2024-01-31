@@ -13,7 +13,7 @@ public class Damage : MonoBehaviour
     {
         if(oneTime && other.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable))
         {
-            damagable.TakeDamage(damage);
+            damagable.ApplyDamage(damage);
         }
     }
 
@@ -21,7 +21,7 @@ public class Damage : MonoBehaviour
     {
         if (!oneTime && other.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable))
         {
-            damagable.TakeDamage(damage * Time.deltaTime);
+            damagable.ApplyDamage(damage * Time.deltaTime);
         }
     }
 
@@ -29,13 +29,13 @@ public class Damage : MonoBehaviour
 	{
 		if (solid && other.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable))
 		{
-			damagable.TakeDamage(damage);
+			damagable.ApplyDamage(damage);
 		}
 	}
 }
 
 public interface IDamagable
 { 
-    void TakeDamage(float damage);
+    void ApplyDamage(float damage);
 }
 
