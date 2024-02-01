@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9fcc63b807352240bb3b7504c99f26c, type: 3}
-  m_Name: Rocket
+  m_Name: RocketAmmo
   m_EditorClassIdentifier: 
   ammoType: 0
-  lifetime: 0
+  lifetime: 1
   damage: 0
   destroyOnImpact: 0
   impactPrefab: {fileID: 1290715649332758, guid: 587eaecaa621be74486f351c78b4f0a8, type: 3}
-  force: 10
+  force: 100
   forceMode: 2
   damageOverTime: 0
   bounce: 0
