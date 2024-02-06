@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5000890020208235798}
   - component: {fileID: 1524731658546345627}
   - component: {fileID: 374823126499602544}
+  - component: {fileID: 5281758223309608443}
   - component: {fileID: 2169746258661218127}
   - component: {fileID: 6920534434449464999}
   m_Layer: 0
@@ -145,6 +146,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoData: {fileID: 11400000, guid: 45612e7bcbe94b540833c3bc99954956, type: 2}
+  action: {fileID: 5281758223309608443}
+--- !u!114 &5281758223309608443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839273304736702802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f78a94c2d732e444beedcc4564c7851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: 
 --- !u!54 &2169746258661218127
 Rigidbody:
   m_ObjectHideFlags: 0
