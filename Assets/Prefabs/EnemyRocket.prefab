@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5281758223309608443}
   - component: {fileID: 2169746258661218127}
   - component: {fileID: 6920534434449464999}
-  m_Layer: 8
-  m_Name: Rocket
+  m_Layer: 0
+  m_Name: EnemyRocket
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,23 +222,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1270262579957756, guid: 020a3c5324a85e54aa57f312e6924dc6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1270555208030432, guid: 020a3c5324a85e54aa57f312e6924dc6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1292179275139644, guid: 020a3c5324a85e54aa57f312e6924dc6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1910585031133374, guid: 020a3c5324a85e54aa57f312e6924dc6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1950422827436776, guid: 020a3c5324a85e54aa57f312e6924dc6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4832878065082272, guid: 020a3c5324a85e54aa57f312e6924dc6, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1598324380993774, guid: 7eedf4519460a0842af962a850d94e97, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4021296802695634, guid: 7eedf4519460a0842af962a850d94e97, type: 3}
       propertyPath: m_LocalScale.x
@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1550517015285282, guid: e221d3ddf51167c4db44235d8c68ee36, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4637046966039350, guid: e221d3ddf51167c4db44235d8c68ee36, type: 3}
       propertyPath: m_LocalScale.x

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 897beeb313d1ec14f9e37c8c5732458d, type: 3}
-  m_Name: RocketLauncher
+  m_Name: EnemyRocketLauncher
   m_EditorClassIdentifier: 
   id: 
   description: 
@@ -26,4 +26,4 @@ MonoBehaviour:
   fireRate: 0.2
   spread: {x: 0.1, y: 0.1, z: 0.1}
   rounds: 0
-  ammoPrefab: {fileID: 1839273304736702802, guid: 5d2d190fc67ba034d997e3f6dc48b1ad, type: 3}
+  ammoPrefab: {fileID: 1839273304736702802, guid: 9941f8e29fbda86428624fce6707e0ce, type: 3}

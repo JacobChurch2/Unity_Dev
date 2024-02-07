@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8387469294481408883}
-  - component: {fileID: 6447701541459025254}
-  - component: {fileID: 4246970719460543848}
+  - component: {fileID: 7714409414123420932}
   - component: {fileID: 4587000713118399014}
   - component: {fileID: 4720013140308740772}
   - component: {fileID: 9111934987496304378}
@@ -30,14 +29,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816420164440991762}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.94758, y: 1.5468802, z: 4.142464}
   m_LocalScale: {x: -0.01, y: -0.01, z: -0.01}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6447701541459025254
+--- !u!114 &7714409414123420932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,25 +45,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 816420164440991762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f949c9662b833ef4785a89ddd88c9861, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fca89a2b02530349931d28581c2f9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  points: 10
+  scoreEvent: {fileID: 11400000, guid: 6f33bf5f29b148e499870bf4c8b9f842, type: 2}
   hitPrefab: {fileID: 0}
-  destroyPrefab: {fileID: 1683585874099774, guid: f4428f3876530af48a50daf8fe3efdef, type: 3}
---- !u!114 &4246970719460543848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816420164440991762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f78a94c2d732e444beedcc4564c7851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagName: 
+  destoryPrefab: {fileID: 1290715649332758, guid: 587eaecaa621be74486f351c78b4f0a8, type: 3}
 --- !u!33 &4587000713118399014
 MeshFilter:
   m_ObjectHideFlags: 0
