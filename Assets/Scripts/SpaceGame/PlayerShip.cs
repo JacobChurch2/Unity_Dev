@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerShip : MonoBehaviour, IDamagable
 {
+	[SerializeField] private PathFollower pathfoller;
 	[SerializeField] private IntEvent scoreEvent;
     [SerializeField] private Inventory inventory;
 	[SerializeField] private IntVariable score;
@@ -28,6 +30,8 @@ public class PlayerShip : MonoBehaviour, IDamagable
         {
             inventory.StopUse();
         }
+
+		pathfoller.speed = ((Input.GetKey(KeyCode.Space)) ? 30 : 15);
     }
 
 	public void AddPoints(int points)
@@ -54,5 +58,11 @@ public class PlayerShip : MonoBehaviour, IDamagable
 				Instantiate(destroyPrefab, gameObject.transform.position, Quaternion.identity);
 			}
 		}
+	}
+
+	public void ApplyHealth(float health)
+	{
+		this.health.value += health;
+		this.health.value = Mathf.Min(this.health.value, 100);
 	}
 }
