@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 897beeb313d1ec14f9e37c8c5732458d, type: 3}
-  m_Name: RocketLauncher
+  m_Name: AutoRifle
   m_EditorClassIdentifier: 
   id: 
   description: 
   icon: {fileID: 0}
   allowMultiple: 0
   equipable: 0
-  usageType: 0
+  usageType: 1
   animTriggerName: 
   animEquipName: 
   rigLayerWeight: []
   itemPrefab: {fileID: 0}
   pickupPrefab: {fileID: 0}
-  fireRate: 1
-  spread: {x: 0.1, y: 0.1, z: 0.1}
-  rounds: 100
-  ammoPrefab: {fileID: 1839273304736702802, guid: 5d2d190fc67ba034d997e3f6dc48b1ad, type: 3}
+  fireRate: 0.1
+  spread: {x: 0.3, y: 0.3, z: 0.3}
+  rounds: 0
+  ammoPrefab: {fileID: 1089844914678772, guid: 592fdcba71017da4f810f3022a74c558, type: 3}

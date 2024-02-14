@@ -65,7 +65,7 @@ public abstract class Spawner : MonoBehaviour , IInteractable
 	
 	bool SpawnReady()
 	{
-		return (active && spawnedList.Count < maxSpawned);
+		return (active && (spawnedList.Count < maxSpawned));
 	}
 
 	protected void Spawn(GameObject prefab, Vector3 position, Quaternion rotation)

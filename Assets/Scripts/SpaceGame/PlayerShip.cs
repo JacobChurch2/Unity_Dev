@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using TMPro;
 
 public class PlayerShip : MonoBehaviour, IDamagable
 {
 	[SerializeField] private PathFollower pathfoller;
 	[SerializeField] private IntEvent scoreEvent;
     [SerializeField] private Inventory inventory;
-	[SerializeField] private IntVariable score;
-	[SerializeField] FloatVariable health;
+	[SerializeField] public IntVariable score;
+	[SerializeField] public FloatVariable health;
+	[SerializeField] TMP_Text? ScoreUI;
 
 	[SerializeField] private GameObject hitPrefab;
 	[SerializeField] private GameObject destroyPrefab;
 
-	private void Start()
+    [SerializeField] VoidEvent playerDeadEvent;
+
+    private void Start()
 	{
 		scoreEvent.Subscribe(AddPoints);
 		health.value = 100;
@@ -25,6 +29,10 @@ public class PlayerShip : MonoBehaviour, IDamagable
         if(Input.GetButtonDown("Fire1"))
         {
             inventory.Use();
+		}
+		else if (Input.GetButtonDown("Fire2"))
+        {
+			inventory.nextItem();
         }
         if(Input.GetButtonUp("Fire1"))
         {
@@ -37,6 +45,7 @@ public class PlayerShip : MonoBehaviour, IDamagable
 	public void AddPoints(int points)
 	{
 		score.value += points;
+		if(ScoreUI) ScoreUI.text = "" + score.value;
 		Debug.Log(score.value);
 	}
 
@@ -45,6 +54,7 @@ public class PlayerShip : MonoBehaviour, IDamagable
 		health.value -= damage;
 		if (health.value < 0)
 		{
+			playerDeadEvent.RaiseEvent();
 			if (destroyPrefab != null)
 			{
 				Instantiate(destroyPrefab, gameObject.transform.position, Quaternion.identity);

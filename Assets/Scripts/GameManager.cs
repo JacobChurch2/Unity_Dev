@@ -5,25 +5,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] GameObject titleUI;
-    [SerializeField] GameObject gameOverUI;
-    [SerializeField] GameObject gameWinUI;
-    [SerializeField] TMP_Text livesUI;
-    [SerializeField] TMP_Text timerUI;
+    [SerializeField] GameObject? gameOverUI;
+    [SerializeField] GameObject? gameWinUI;
+    [SerializeField] TMP_Text? livesUI;
+    [SerializeField] TMP_Text? timerUI;
     [SerializeField] Slider healthUI;
 
     [SerializeField] FloatVariable health;
 
-    [SerializeField] GameObject respawn;
+    [SerializeField] GameObject? respawn;
+
+    [SerializeField] PathFollower playerPath;
+    [SerializeField] PlayerShip playerShip;
+    [SerializeField] TMP_Text gameOverScoreText;
 
     [Header("Events")]
     //[SerializeField] IntEvent scoreEvent;
-    [SerializeField] VoidEvent gameStartEvent;
-    [SerializeField] VoidEvent gameOverEvent;
-    [SerializeField] GameObjectEvent respawnEvent;
+    [SerializeField] VoidEvent? gameStartEvent;
+    [SerializeField] VoidEvent? gameOverEvent;
+    [SerializeField] GameObjectEvent? respawnEvent;
 
     public enum State
     {
@@ -37,7 +42,7 @@ public class GameManager : Singleton<GameManager>
 
     public State state = State.TITLE;
     public float timer = 0;
-    public int lives = 0;
+    public int lives = 1;
 
     public float Timer
     {
@@ -45,7 +50,7 @@ public class GameManager : Singleton<GameManager>
         set
         {
             timer = value;
-            timerUI.text = string.Format("{0:F1}", timer);
+            if(timerUI) timerUI.text = string.Format("{0:F1}", timer);
         }
     }
 
@@ -55,7 +60,7 @@ public class GameManager : Singleton<GameManager>
         set
         {
             lives = value;
-            livesUI.text = "Lives: " + lives.ToString();
+            if(livesUI) livesUI.text = "Lives: " + lives.ToString();
         }
     }
 
@@ -79,35 +84,41 @@ public class GameManager : Singleton<GameManager>
         switch (state)
         {
             case State.TITLE:
-                gameOverUI.SetActive(false);
-                gameWinUI.SetActive(false);
+                if(gameOverUI) gameOverUI.SetActive(false);
+                if(gameWinUI) gameWinUI.SetActive(false);
                 titleUI.SetActive(true);
+                playerPath.speed = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
             case State.START_GAME:
                 titleUI.SetActive(false);
-                gameWinUI.SetActive(false);
-                gameOverUI.SetActive(false);
-                timer = 60;
-                Lives = 3;
+                if (gameWinUI) gameWinUI.SetActive(false);
+                if (gameOverUI) gameOverUI.SetActive(false);
+                //timer = 60;
+                //Lives = 3;
                 health.value = 100;
+                playerPath.speed = 15;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                gameStartEvent.RaiseEvent();
-                respawnEvent.RaiseEvent(respawn);
+                if(gameStartEvent) gameStartEvent.RaiseEvent();
+                if (respawn && respawnEvent) respawnEvent.RaiseEvent(respawn);
                 state = State.PLAY_GAME;
                 break;
             case State.PLAY_GAME:
-                Timer = Timer - Time.deltaTime;
-                if (Timer <= 0)
+                //Timer = Timer - Time.deltaTime;
+                //if (Timer <= 0)
+                //{
+                //    state = State.DEATH;
+                //}
+                if(playerShip.health.value <= 0 || playerPath.tdistance >= 1)
                 {
-                    state = State.DEATH;
+                    state = State.DEATH; 
                 }
                 break;
             case State.DEATH:
                 Lives--;
-                if (Lives == 0)
+                if (Lives <= 0)
                 {
                     state = State.GAME_OVER;
                 }
@@ -116,19 +127,21 @@ public class GameManager : Singleton<GameManager>
                     timer = 60;
                     health.value = 100;
                     state = State.PLAY_GAME;
-                    gameStartEvent.RaiseEvent();
-                    respawnEvent.RaiseEvent(respawn);
+                    if (gameStartEvent) gameStartEvent.RaiseEvent();
+                    if(respawn && respawnEvent) respawnEvent.RaiseEvent(respawn);
                 }
                 break;
             case State.GAME_OVER:
-                gameOverEvent.RaiseEvent();
-                gameOverUI.SetActive(true);
+                if(gameOverEvent) gameOverEvent.RaiseEvent();
+                if (gameOverUI) gameOverUI.SetActive(true);
+                gameOverScoreText.text = "Game Over\nPoints: " + playerShip.score.value.ToString();
+                playerPath.speed = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
             case State.GAME_WIN:
-				gameOverEvent.RaiseEvent();
-				gameWinUI.SetActive(true);
+                if (gameOverEvent) gameOverEvent.RaiseEvent();
+                if (gameWinUI) gameWinUI.SetActive(true);
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				break;
@@ -155,10 +168,10 @@ public class GameManager : Singleton<GameManager>
     public void OnAddPoints(int points)
     {
         print(points);
-        if(points >= 1000)
-        {
-            state = State.GAME_WIN;
-        }
+        //if(points >= 1000)
+        //{
+        //    state = State.GAME_WIN;
+        //}
     }
 
     public void OnPlayAgain()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 374823126499602544}
   - component: {fileID: 5281758223309608443}
   - component: {fileID: 2169746258661218127}
-  - component: {fileID: 6920534434449464999}
+  - component: {fileID: 3272373850252774932}
   m_Layer: 8
   m_Name: Rocket
   m_TagString: Player
@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.23, y: 2.23, z: 2.23}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6004899496733599670}
   m_Father: {fileID: 0}
@@ -187,8 +187,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &6920534434449464999
-SphereCollider:
+--- !u!65 &3272373850252774932
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,8 +206,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.09
-  m_Center: {x: 0, y: 0, z: 0.47}
+  m_Size: {x: 0.21635887, y: 0.19040805, z: 0.6139779}
+  m_Center: {x: -0.0048701465, y: -0.0002862364, z: 0.24011374}
 --- !u!1001 &1043963077777459528
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -72,8 +72,8 @@ public class Weapon : Item
 
 	public override void StopUse()
 	{
-		if (weaponData.usageType == UsageType.SINGLE || weaponData.usageType == UsageType.BURST) weaponReady = true;
-		StopCoroutine(autoFireCoroutine);
+		//if (weaponData.usageType == UsageType.SINGLE || weaponData.usageType == UsageType.BURST) weaponReady = true;
+		if(weaponData.usageType == UsageType.AUTO || weaponData.usageType == UsageType.STREAM) StopCoroutine(autoFireCoroutine);
 
 	}
 

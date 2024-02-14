@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9fcc63b807352240bb3b7504c99f26c, type: 3}
-  m_Name: RocketAmmo
+  m_Name: AutoAmmo
   m_EditorClassIdentifier: 
   ammoType: 0
   lifetime: 1
-  damage: 10
+  damage: 5
   destroyOnImpact: 0
-  impactPrefab: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4, type: 3}
+  impactPrefab: {fileID: 0}
   force: 100
   forceMode: 2
   damageOverTime: 0
